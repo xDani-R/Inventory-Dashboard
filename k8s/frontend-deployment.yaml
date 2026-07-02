@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-frontend
+  namespace: inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-frontend
+  template:
+    metadata:
+      labels:
+        app: inventory-frontend
+    spec:
+      containers:
+        - name: inventory-frontend
+          image: 176728675662.dkr.ecr.us-east-1.amazonaws.com/inventory-frontend:v1
+          ports:
+            - containerPort: 80
